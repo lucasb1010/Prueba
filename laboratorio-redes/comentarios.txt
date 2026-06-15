@@ -1,0 +1,58 @@
+Integrantes del grupo:
+
+- Lucas Ezequiel Bergara Rio – CI: 54952629
+- Germán Ezequiel Rodríguez Rotunno – CI: 55716119
+
+================================================================================
+
+Descripción del trabajo:
+
+Se implementó una aplicación de mensajería en Python utilizando sockets.
+
+La solución se divide en dos componentes ejecutándose concurrentemente mediante hilos:
+
+* Emisor:
+  Permite enviar mensajes a otra instancia del programa utilizando dirección IP o nombre de host.
+  También permite el envío de mensajes por broadcast utilizando el símbolo "*".
+
+* Receptor:
+  Permanece escuchando continuamente sobre el puerto indicado al iniciar el programa y muestra por salida estándar los mensajes recibidos junto con fecha, hora, IP y usuario emisor.
+
+Se implementó autenticación contra el servidor indicado por la cátedra utilizando:
+
+* Usuario
+* Contraseña codificada en MD5
+* Comunicación utilizando finales de línea CRLF
+
+Características implementadas:
+
+* Autenticación de usuarios
+* Resolución de nombres de host
+* Envío de mensajes punto a punto
+* Envío de mensajes broadcast
+* Recepción concurrente mediante hilos
+* Validación de longitud máxima del mensaje (255 caracteres)
+* Liberación de sockets al finalizar el programa
+
+================================================================================
+
+Modo de ejecución:
+
+Cliente:
+python mensajeria.py port ipAuth portAuth
+
+Ejemplo:
+python mensajeria.py 6000 192.168.1.27 5000
+
+Donde:
+
+* port: puerto local donde escucha el receptor
+* ipAuth: dirección IP del servidor de autenticación
+* portAuth: puerto del servidor de autenticación
+
+================================================================================
+
+Observaciones:
+
+* El programa fue probado utilizando múltiples instancias ejecutándose simultáneamente.
+* El cierre del programa libera los sockets abiertos antes de finalizar.
